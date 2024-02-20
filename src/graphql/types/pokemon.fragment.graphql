@@ -1,0 +1,9 @@
+fragment PokemonBase on pokemon_v2_pokemon {
+  id
+  name
+  order
+  height
+  weight
+  base_experience
+  is_default
+}

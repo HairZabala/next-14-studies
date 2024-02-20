@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { IoBrowsersOutline, IoCalculator, IoLogoReact } from 'react-icons/io5';
 import { MenuItem } from './MenuItem';
+import { USER_NAME } from '@/utils/constants';
 
 const menuItems = [
   {
@@ -45,7 +46,7 @@ export const Sidebar = () => {
               alt=''
             />
           </span>
-          <span className='text-sm md:text-base font-bold'>Hair Zabala</span>
+          <span className='text-sm md:text-base font-bold'>{USER_NAME}</span>
         </a>
       </div>
       <div id='nav' className='w-full px-6'>
