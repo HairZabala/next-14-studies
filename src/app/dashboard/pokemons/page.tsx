@@ -11,7 +11,6 @@ const getPokemons = async (limit = 151, offset = 0) => {
     },
   })) as GetPokemonsQueryResult;
 
-  throw new Error('This is an error');
   return pokemons?.data?.pokemon_v2_pokemon ?? [];
 };
 
