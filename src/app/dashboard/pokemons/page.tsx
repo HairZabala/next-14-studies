@@ -1,9 +1,4 @@
-import {
-  GetPokemonsDocument,
-  GetPokemonsQueryResult,
-  PokemonBaseFragment,
-  Pokemon_V2_Pokemon,
-} from '@/graphql/generated';
+import { GetPokemonsDocument, GetPokemonsQueryResult, PokemonBaseFragment } from '@/graphql/generated';
 import { getClient } from '@/libs/client';
 import Image from 'next/image';
 
