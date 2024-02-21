@@ -1,4 +1,4 @@
-import PokemonGrid from '@/app/features/pokemon/components/PokemonGrid';
+import PokemonGrid from '@/features/pokemon/components/PokemonGrid';
 import { GetPokemonsDocument, GetPokemonsQueryResult, Pokemon_V2_Pokemon } from '@/graphql/generated';
 import { getClient } from '@/libs/client';
 

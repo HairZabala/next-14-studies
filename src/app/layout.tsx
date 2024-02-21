@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { NProgressComponent } from './components/NProgress';
+import { NProgressComponent } from '../components/NProgress';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });

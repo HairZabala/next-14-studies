@@ -1,0 +1,5 @@
+query GetPokemon($id: Int!) {
+  pokemon_v2_pokemon_by_pk(id: $id) {
+    ...PokemonBase
+  }
+}

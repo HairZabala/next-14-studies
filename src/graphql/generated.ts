@@ -58752,6 +58752,13 @@ export type Subscription_RootPokemon_V2_Versionname_StreamArgs = {
   where?: InputMaybe<Pokemon_V2_Versionname_Bool_Exp>;
 };
 
+export type GetPokemonQueryVariables = Exact<{
+  id: Scalars['Int']['input'];
+}>;
+
+
+export type GetPokemonQuery = { __typename?: 'query_root', pokemon_v2_pokemon_by_pk?: { __typename?: 'pokemon_v2_pokemon', id: number, name: string, order?: number | null, height?: number | null, weight?: number | null, base_experience?: number | null, is_default: boolean } | null };
+
 export type GetPokemonsQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']['input']>;
   offset?: InputMaybe<Scalars['Int']['input']>;
@@ -58773,6 +58780,46 @@ export const PokemonBaseFragmentDoc = gql`
   is_default
 }
     `;
+export const GetPokemonDocument = gql`
+    query GetPokemon($id: Int!) {
+  pokemon_v2_pokemon_by_pk(id: $id) {
+    ...PokemonBase
+  }
+}
+    ${PokemonBaseFragmentDoc}`;
+
+/**
+ * __useGetPokemonQuery__
+ *
+ * To run a query within a React component, call `useGetPokemonQuery` and pass it any options that fit your needs.
+ * When your component renders, `useGetPokemonQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * you can use to render your UI.
+ *
+ * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ *
+ * @example
+ * const { data, loading, error } = useGetPokemonQuery({
+ *   variables: {
+ *      id: // value for 'id'
+ *   },
+ * });
+ */
+export function useGetPokemonQuery(baseOptions: Apollo.QueryHookOptions<GetPokemonQuery, GetPokemonQueryVariables> & ({ variables: GetPokemonQueryVariables; skip?: boolean; } | { skip: boolean; }) ) {
+        const options = {...defaultOptions, ...baseOptions}
+        return Apollo.useQuery<GetPokemonQuery, GetPokemonQueryVariables>(GetPokemonDocument, options);
+      }
+export function useGetPokemonLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetPokemonQuery, GetPokemonQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useLazyQuery<GetPokemonQuery, GetPokemonQueryVariables>(GetPokemonDocument, options);
+        }
+export function useGetPokemonSuspenseQuery(baseOptions?: Apollo.SuspenseQueryHookOptions<GetPokemonQuery, GetPokemonQueryVariables>) {
+          const options = {...defaultOptions, ...baseOptions}
+          return Apollo.useSuspenseQuery<GetPokemonQuery, GetPokemonQueryVariables>(GetPokemonDocument, options);
+        }
+export type GetPokemonQueryHookResult = ReturnType<typeof useGetPokemonQuery>;
+export type GetPokemonLazyQueryHookResult = ReturnType<typeof useGetPokemonLazyQuery>;
+export type GetPokemonSuspenseQueryHookResult = ReturnType<typeof useGetPokemonSuspenseQuery>;
+export type GetPokemonQueryResult = Apollo.QueryResult<GetPokemonQuery, GetPokemonQueryVariables>;
 export const GetPokemonsDocument = gql`
     query GetPokemons($limit: Int = 10, $offset: Int = 0) {
   pokemon_v2_pokemon(limit: $limit, offset: $offset) {
