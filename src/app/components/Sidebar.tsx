@@ -3,6 +3,7 @@ import React from 'react';
 import { IoBrowsersOutline, IoCalculator, IoLogoReact } from 'react-icons/io5';
 import { MenuItem } from './MenuItem';
 import { USER_NAME } from '@/utils/constants';
+import { IoIosFootball } from 'react-icons/io';
 
 const menuItems = [
   {
@@ -16,6 +17,12 @@ const menuItems = [
     icon: <IoCalculator size={30} />,
     title: 'Counter',
     subtitle: 'Counter server side',
+  },
+  {
+    path: '/dashboard/pokemons',
+    icon: <IoIosFootball size={30} />,
+    title: 'Pokemons',
+    subtitle: 'Static data fetching',
   },
 ];
 
