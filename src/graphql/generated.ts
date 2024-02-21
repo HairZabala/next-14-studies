@@ -58752,7 +58752,10 @@ export type Subscription_RootPokemon_V2_Versionname_StreamArgs = {
   where?: InputMaybe<Pokemon_V2_Versionname_Bool_Exp>;
 };
 
-export type GetPokemonsQueryVariables = Exact<{ [key: string]: never; }>;
+export type GetPokemonsQueryVariables = Exact<{
+  limit?: InputMaybe<Scalars['Int']['input']>;
+  offset?: InputMaybe<Scalars['Int']['input']>;
+}>;
 
 
 export type GetPokemonsQuery = { __typename?: 'query_root', pokemon_v2_pokemon: Array<{ __typename?: 'pokemon_v2_pokemon', id: number, name: string, order?: number | null, height?: number | null, weight?: number | null, base_experience?: number | null, is_default: boolean }> };
@@ -58771,8 +58774,8 @@ export const PokemonBaseFragmentDoc = gql`
 }
     `;
 export const GetPokemonsDocument = gql`
-    query GetPokemons {
-  pokemon_v2_pokemon(limit: 10) {
+    query GetPokemons($limit: Int = 10, $offset: Int = 0) {
+  pokemon_v2_pokemon(limit: $limit, offset: $offset) {
     ...PokemonBase
   }
 }
@@ -58790,6 +58793,8 @@ export const GetPokemonsDocument = gql`
  * @example
  * const { data, loading, error } = useGetPokemonsQuery({
  *   variables: {
+ *      limit: // value for 'limit'
+ *      offset: // value for 'offset'
  *   },
  * });
  */

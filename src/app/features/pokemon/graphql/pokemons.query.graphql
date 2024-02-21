@@ -1,5 +1,5 @@
-query GetPokemons {
-  pokemon_v2_pokemon(limit: 10) {
+query GetPokemons($limit: Int = 10, $offset: Int = 0) {
+  pokemon_v2_pokemon(limit: $limit, offset: $offset) {
     ...PokemonBase
   }
 }
