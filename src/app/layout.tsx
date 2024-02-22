@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import { NProgressComponent } from '../components/NProgress';
 import './globals.css';
 import { Suspense } from 'react';
+import Providers from '@/store/Providers';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,7 +23,7 @@ export default function RootLayout({
         <Suspense>
           <NProgressComponent />
         </Suspense>
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
