@@ -6,4 +6,15 @@ fragment PokemonBase on pokemon_v2_pokemon {
   weight
   base_experience
   is_default
+  pokemon_v2_pokemonmoves {
+    pokemon_v2_move {
+      name
+    }
+  }
+  pokemon_v2_pokemontypes {
+    slot
+    pokemon_v2_type {
+      name
+    }
+  }
 }

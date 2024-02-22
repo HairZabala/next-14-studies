@@ -58757,7 +58757,7 @@ export type GetPokemonQueryVariables = Exact<{
 }>;
 
 
-export type GetPokemonQuery = { __typename?: 'query_root', pokemon_v2_pokemon_by_pk?: { __typename?: 'pokemon_v2_pokemon', id: number, name: string, order?: number | null, height?: number | null, weight?: number | null, base_experience?: number | null, is_default: boolean } | null };
+export type GetPokemonQuery = { __typename?: 'query_root', pokemon_v2_pokemon_by_pk?: { __typename?: 'pokemon_v2_pokemon', id: number, name: string, order?: number | null, height?: number | null, weight?: number | null, base_experience?: number | null, is_default: boolean, pokemon_v2_pokemonmoves: Array<{ __typename?: 'pokemon_v2_pokemonmove', pokemon_v2_move?: { __typename?: 'pokemon_v2_move', name: string } | null }>, pokemon_v2_pokemontypes: Array<{ __typename?: 'pokemon_v2_pokemontype', slot: number, pokemon_v2_type?: { __typename?: 'pokemon_v2_type', name: string } | null }> } | null };
 
 export type GetPokemonsQueryVariables = Exact<{
   limit?: InputMaybe<Scalars['Int']['input']>;
@@ -58765,9 +58765,9 @@ export type GetPokemonsQueryVariables = Exact<{
 }>;
 
 
-export type GetPokemonsQuery = { __typename?: 'query_root', pokemon_v2_pokemon: Array<{ __typename?: 'pokemon_v2_pokemon', id: number, name: string, order?: number | null, height?: number | null, weight?: number | null, base_experience?: number | null, is_default: boolean }> };
+export type GetPokemonsQuery = { __typename?: 'query_root', pokemon_v2_pokemon: Array<{ __typename?: 'pokemon_v2_pokemon', id: number, name: string, order?: number | null, height?: number | null, weight?: number | null, base_experience?: number | null, is_default: boolean, pokemon_v2_pokemonmoves: Array<{ __typename?: 'pokemon_v2_pokemonmove', pokemon_v2_move?: { __typename?: 'pokemon_v2_move', name: string } | null }>, pokemon_v2_pokemontypes: Array<{ __typename?: 'pokemon_v2_pokemontype', slot: number, pokemon_v2_type?: { __typename?: 'pokemon_v2_type', name: string } | null }> }> };
 
-export type PokemonBaseFragment = { __typename?: 'pokemon_v2_pokemon', id: number, name: string, order?: number | null, height?: number | null, weight?: number | null, base_experience?: number | null, is_default: boolean };
+export type PokemonBaseFragment = { __typename?: 'pokemon_v2_pokemon', id: number, name: string, order?: number | null, height?: number | null, weight?: number | null, base_experience?: number | null, is_default: boolean, pokemon_v2_pokemonmoves: Array<{ __typename?: 'pokemon_v2_pokemonmove', pokemon_v2_move?: { __typename?: 'pokemon_v2_move', name: string } | null }>, pokemon_v2_pokemontypes: Array<{ __typename?: 'pokemon_v2_pokemontype', slot: number, pokemon_v2_type?: { __typename?: 'pokemon_v2_type', name: string } | null }> };
 
 export const PokemonBaseFragmentDoc = gql`
     fragment PokemonBase on pokemon_v2_pokemon {
@@ -58778,6 +58778,17 @@ export const PokemonBaseFragmentDoc = gql`
   weight
   base_experience
   is_default
+  pokemon_v2_pokemonmoves {
+    pokemon_v2_move {
+      name
+    }
+  }
+  pokemon_v2_pokemontypes {
+    slot
+    pokemon_v2_type {
+      name
+    }
+  }
 }
     `;
 export const GetPokemonDocument = gql`
